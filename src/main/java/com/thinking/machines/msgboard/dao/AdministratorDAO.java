@@ -1,8 +1,9 @@
 package com.thinking.machines.msgboard.dao;
 import java.sql.*;
+import com.thinking.machines.msgboard.dto.*;
 public class AdministratorDAO
 {
-public void add(Adminitrator administrator)
+public void add(Administrator administrator) throws DAOException
 {
 try
 {
@@ -11,7 +12,7 @@ PreparedStatement preparedStatement;
 preparedStatement=connection.prepareStatement("inser into administartor values(?,?,?)");
 preparedStatement.setString(1,administrator.getUsername());
 preparedStatement.setString(2,administrator.getPassword());
-preparedStatement.setString(3.administrator.getPasswordKey());
+preparedStatement.setString(3,administrator.getPasswordKey());
 preparedStatement.executeUpdate();
 preparedStatement.close();
 connection.close();
