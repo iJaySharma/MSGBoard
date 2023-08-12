@@ -11,7 +11,22 @@ private DataBaseBean dataBaseBean;
 @GetMapping("/admin")
 public String adminIndex()
 {
-if(dataBaseBean.getDriver()==null) return "AdminIndex";
-return "Installer";
+if(dataBaseBean.getDriver()==null) return "Installer";
+return "AdminIndex";
+}
+@PostMapping("/install")
+public String installMessageBoard(InstallationBean installationBean)
+{
+System.out.println(installationBean.getDriver());
+System.out.println(installationBean.getConnectionString());
+System.out.println(installationBean.getUsername());
+System.out.println(installationBean.getPassword());
+System.out.println(installationBean.getAdministratorUsername());
+System.out.println(installationBean.getAdministratorPassword());
+// you need to write the code to get the table created 
+// if created, then set driver etc. in DaoConnection
+// call add of AdministratorDAO
+// if all is well, then return InstallationSuccessful
+return "InstallationFailed";
 }
 }
